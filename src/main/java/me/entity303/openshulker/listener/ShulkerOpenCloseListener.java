@@ -40,7 +40,7 @@ public class ShulkerOpenCloseListener implements Listener {
 
         if (event.getHand() != EquipmentSlot.HAND) return;
 
-        if (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
+        if (event.getAction() != Action.RIGHT_CLICK_AIR) return;
 
         if (!event.getPlayer().isSneaking()) return;
 
