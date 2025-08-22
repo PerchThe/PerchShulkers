@@ -1,6 +1,6 @@
 name: PerchShulkers
-version: '1.1-fixbrokenshulkers'
-main: me.entity303.openshulker.OpenShulker
+version: '1.0.0'
+main: me.perch.shulkers.OpenShulker
 api-version: 1.14
 authors: [KayaLambrex]
 

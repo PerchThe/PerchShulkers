@@ -1,6 +1,6 @@
-package me.entity303.openshulker.listener;
+package me.perch.shulkers.listener;
 
-import me.entity303.openshulker.OpenShulker;
+import me.perch.shulkers.OpenShulker;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -110,7 +110,7 @@ public class ShulkerDupeListener implements Listener {
     public void onDupedShulkerPlace(PlayerInteractEvent event) {
         ItemStack item = event.getItem();
         if (!isShulkerBox(item)) return;
-        if (!openShulker.GetShulkerActions().IsOpenShulker(item)) return;
+        if (!openShulker.GetShulkerActions().IsOpenShulker(item, event.getPlayer())) return;
         event.setCancelled(true);
         event.setUseItemInHand(Event.Result.DENY);
     }
@@ -122,32 +122,17 @@ public class ShulkerDupeListener implements Listener {
         ItemStack clicked = event.getCurrentItem();
         ItemStack cursor = event.getCursor();
 
-        if (isShulkerBox(clicked) && openShulker.GetShulkerActions().IsOpenShulker(clicked) && !player.isOp()) {
+        if (isShulkerBox(clicked) && openShulker.GetShulkerActions().IsOpenShulker(clicked, player) && !player.isOp()) {
             event.setCancelled(true);
             return;
         }
-        if (isShulkerBox(cursor) && openShulker.GetShulkerActions().IsOpenShulker(cursor) && !player.isOp()) {
+        if (isShulkerBox(cursor) && openShulker.GetShulkerActions().IsOpenShulker(cursor, player) && !player.isOp()) {
             event.setCancelled(true);
         }
     }
 
-    // CRITICAL: Clean up shulker "open" state when inventory is closed
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onShulkerInventoryClose(InventoryCloseEvent event) {
-        if (!(event.getPlayer() instanceof Player)) return;
-        Player player = (Player) event.getPlayer();
-        Inventory closedInventory = event.getInventory();
-
-        // Uncomment and implement these methods in ShulkerActions if not present!
-        /*
-        if (openShulker.GetShulkerActions().IsInventoryPluginOpenedShulker(player, closedInventory)) {
-            ItemStack shulkerItem = openShulker.GetShulkerActions().getAndClearPlayersOpenShulkerItem(player);
-            if (isShulkerBox(shulkerItem)) {
-                openShulker.GetShulkerActions().markShulkerItemAsClosed(shulkerItem, player);
-            }
-            openShulker.GetShulkerActions().clearPlayerOpenShulkerState(player);
-        }
-        */
     }
 
     @EventHandler(ignoreCancelled = true)

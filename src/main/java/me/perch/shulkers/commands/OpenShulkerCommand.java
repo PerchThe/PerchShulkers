@@ -1,6 +1,6 @@
-package me.entity303.openshulker.commands;
+package me.perch.shulkers.commands;
 
-import me.entity303.openshulker.OpenShulker;
+import me.perch.shulkers.OpenShulker;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

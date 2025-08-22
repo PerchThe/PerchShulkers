@@ -1,6 +1,6 @@
-package me.entity303.openshulker.listener;
+package me.perch.shulkers.listener;
 
-import me.entity303.openshulker.OpenShulker;
+import me.perch.shulkers.OpenShulker;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

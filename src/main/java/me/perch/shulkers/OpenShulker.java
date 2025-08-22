@@ -1,11 +1,11 @@
-package me.entity303.openshulker;
+package me.perch.shulkers;
 
-import me.entity303.openshulker.commands.CleanShulkersCommand;
-import me.entity303.openshulker.commands.OpenShulkerCommand;
-import me.entity303.openshulker.listener.ShulkerDupeListener;
-import me.entity303.openshulker.listener.ShulkerOpenCloseListener;
-import me.entity303.openshulker.listener.ShulkerReadOnlyListener;
-import me.entity303.openshulker.util.ShulkerActions;
+import me.perch.shulkers.commands.CleanShulkersCommand;
+import me.perch.shulkers.commands.OpenShulkerCommand;
+import me.perch.shulkers.listener.ShulkerDupeListener;
+import me.perch.shulkers.listener.ShulkerOpenCloseListener;
+import me.perch.shulkers.listener.ShulkerReadOnlyListener;
+import me.perch.shulkers.util.ShulkerActions;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.PluginCommand;
