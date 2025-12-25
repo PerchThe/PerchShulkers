@@ -122,12 +122,20 @@ public class ShulkerDupeListener implements Listener {
         ItemStack clicked = event.getCurrentItem();
         ItemStack cursor = event.getCursor();
 
-        if (isShulkerBox(clicked) && openShulker.GetShulkerActions().IsOpenShulker(clicked, player) && !player.isOp()) {
-            event.setCancelled(true);
-            return;
+        if (isShulkerBox(clicked) && openShulker.GetShulkerActions().IsOpenShulker(clicked, player)) {
+            if (player.getOpenInventory().getType() != InventoryType.SHULKER_BOX) {
+                openShulker.GetShulkerActions().unmarkShulkerAsOpen(clicked);
+            } else if (!player.isOp()) {
+                event.setCancelled(true);
+                return;
+            }
         }
-        if (isShulkerBox(cursor) && openShulker.GetShulkerActions().IsOpenShulker(cursor, player) && !player.isOp()) {
-            event.setCancelled(true);
+        if (isShulkerBox(cursor) && openShulker.GetShulkerActions().IsOpenShulker(cursor, player)) {
+            if (player.getOpenInventory().getType() != InventoryType.SHULKER_BOX) {
+                openShulker.GetShulkerActions().unmarkShulkerAsOpen(cursor);
+            } else if (!player.isOp()) {
+                event.setCancelled(true);
+            }
         }
     }
 
