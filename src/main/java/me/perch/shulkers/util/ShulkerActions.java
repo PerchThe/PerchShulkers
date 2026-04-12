@@ -190,8 +190,10 @@ public class ShulkerActions {
         }, this._openShulker.getConfig().getLong("WaitSecondsBeforeOpen", 0) * 20);
         try {
             player.playSound(player, Sound.valueOf(this._openShulker.getConfig().getString("OpenSound")), 0.08F, 1.0F);
-        } catch (Throwable ignored) {}
-        return true;
+        } catch (Throwable ignored) {
+        }
+         return true;
+//        }
     }
 
     public boolean AttemptToOpenShulkerBox(Player player, ItemStack itemStack, Location chest) {
